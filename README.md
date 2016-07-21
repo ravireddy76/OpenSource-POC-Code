@@ -21,8 +21,7 @@ Use Rest Client in any browser (Like Chrome : PostMan, FireFox: Rest Client plug
 		"firstName": "CFN-55",
 		"lastName": "CLN-55",
 		"address": "5555 N View Dr. Minneapolis, MN", "zipCode": "55555",
-		"contactNumber": "952-555-5555" 
-   }
+		"contactNumber": "952-555-5555" }
 
 # Rest-SpringBoot POC and API Reference
 Rest-SpringBoot POC is micro service to manage customer information
