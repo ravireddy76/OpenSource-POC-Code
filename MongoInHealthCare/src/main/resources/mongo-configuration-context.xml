@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        					http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/context 
+							http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                            http://www.springframework.org/schema/util 
+                            http://www.springframework.org/schema/util/spring-util-3.0.xsd
+                            http://www.springframework.org/schema/data/mongo
+							http://www.springframework.org/schema/data/mongo/spring-mongo-1.2.xsd">
+
+	<context:component-scan base-package="com.mongo.healthcare.poc" />
+	<context:component-scan base-package="com.mongo.healthcare.poc.service" />
+	<context:annotation-config />
+	<context:property-placeholder/>
+
+	<mongo:mongo host="127.0.0.1" port="27017" />
+	<mongo:db-factory id="mongoDbFactory" dbname="healthCare" />
+	
+	<!-- <mongo:mongo host="127.10.139.130" port="27017" />
+	<mongo:db-factory id="mongoDbFactory" dbname="pocs" username="admin" password="u4F6CGiuD_IE" mongo-ref="mongo" /> -->
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+
+	<!--Custom converter to save strings in MongoDB -->
+	<bean id="stringReadConverter" class="com.mongo.healthcare.poc.utils.StringReadConverter" />
+    <bean id="stringWriteConverter" class="com.mongo.healthcare.poc.utils.StringWriteConverter" />
+	
+	<mongo:mapping-converter id="mappingConverter">
+		<mongo:custom-converters>
+			<mongo:converter ref="stringReadConverter" />
+			<mongo:converter ref="stringWriteConverter" />
+		</mongo:custom-converters>
+	</mongo:mapping-converter>
+	
+	<bean id="stringMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+		<constructor-arg name="mongoConverter" ref="mappingConverter" />
+	</bean>
+	
+	<!-- Make this work with annotations. For now declaring in config.xml -->
+	<bean id="stringMongoRepository" class="com.mongo.healthcare.poc.utils.StringMongoRepositoryImpl">
+		<property name="mongoTemplate" ref="stringMongoTemplate" />
+	</bean>
+	
+	<!-- To translate any MongoExceptions thrown in @Repository annotated classes -->
+	<!-- Package w/ auto magic repositories -->
+	<mongo:repositories base-package="com.mongo.healthcare.poc.*.repository"
+		repository-impl-postfix="CustomImpl" />
+	
+
+</beans>

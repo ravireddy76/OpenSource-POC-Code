@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<end-point-urls>
+	http://localhost:8080/MongoInHealthCare/cdService/searchConditionCode?conditionCode=400
+	http://localhost:8080/MongoInHealthCare/cdService/searchConditionName?conditionName=abc
+	http://localhost:8080/MongoInHealthCare/cdService/searchMedication?medication=abc
+	http://localhost:8080/MongoInHealthCare/cdService/searchAllergies?allergySubstance=food
+</end-point-urls>

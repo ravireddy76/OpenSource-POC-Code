@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="landing-template" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/landingHeader.jsp" />
+		<put-attribute name="leftsidebar" value="" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="rightsidebar" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="template-main" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="leftsidebar" value="" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="rightsidebar" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="navigation-template-main" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="leftsidebar" value="/WEB-INF/tiles/sidebar.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="rightsidebar" value="/WEB-INF/tiles/sidebar.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="landing" extends="landing-template">
+		<put-attribute name="title" value="MongoDB In HealthCare" />
+		<put-attribute name="content" value="/WEB-INF/views/landing.jsp" />
+	</definition>
+	
+	<definition name="userProfile" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - My Profile" />
+		<put-attribute name="leftsidebar" value="/WEB-INF/views/profileLeftNav.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/userProfile.jsp" />
+		<put-attribute name="rightsidebar" value="/WEB-INF/views/profileRightNav.jsp" />
+	</definition>
+	
+	<definition name="dbdetails" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - Dashboard" />
+		<put-attribute name="content" value="/WEB-INF/views/dashBoard.jsp" />
+	</definition>
+	
+	<definition name="medications" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - Offers | Providers" />
+		<put-attribute name="leftsidebar" value="/WEB-INF/views/offerLeftNav.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/medications.jsp" />
+		<put-attribute name="rightsidebar" value="/WEB-INF/views/offerRightNav.jsp" />
+	</definition>
+	
+	<definition name="doctorOffer" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - Reward Network" />
+		<put-attribute name="leftsidebar" value="/WEB-INF/views/offerLeftNav.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/doctorOffer.jsp" />
+		<put-attribute name="rightsidebar" value="/WEB-INF/views/offerRightNav.jsp" />
+	</definition>
+	
+	<definition name="offersNow" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - Offers | Viewing Now" />
+		<put-attribute name="leftsidebar" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/offersNow.jsp" />
+		<put-attribute name="rightsidebar" value="" />
+	</definition>
+	
+	<definition name="usermessage" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - My Profile" />
+		<put-attribute name="content" value="/WEB-INF/views/message.jsp" />
+	</definition>
+	
+	<definition name="underconstruction" extends="template-main">
+		<put-attribute name="title" value="HealthSavvy - Under Construction" />
+		<put-attribute name="content" value="/WEB-INF/views/underconstruction.jsp" />
+	</definition>
+
+</tiles-definitions>
