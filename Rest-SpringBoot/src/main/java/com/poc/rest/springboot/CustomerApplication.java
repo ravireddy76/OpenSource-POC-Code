@@ -12,7 +12,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @ComponentScan({
         "com.poc.rest.springboot.domain",
-        "com.poc.rest.springboot.service"
+        "com.poc.rest.springboot.service",
+        "com.poc.rest.springboot.controller"
 })
 @Import({
         SwaggerConfig.class
