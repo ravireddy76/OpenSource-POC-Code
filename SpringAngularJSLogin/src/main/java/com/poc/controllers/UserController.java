@@ -5,23 +5,18 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import com.poc.beans.User;
 
 
-@Controller
+@RestController
 public class UserController {
 	public List<User> loginUsers = new ArrayList<User>();
 
-//	@RequestMapping(value = "/login")
-//	public String loginPage() {
-//		System.out.println("Inside the User Controller /loginpage starting.....");
-//		return "views/login";
-//	}
-	
+
 	@RequestMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public ResponseEntity login(@RequestBody User user) {
 		if(user.getUserId().equalsIgnoreCase("test") && user.getPassword().equalsIgnoreCase("test123")){

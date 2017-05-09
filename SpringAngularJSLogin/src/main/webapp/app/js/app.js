@@ -1,3 +1,5 @@
+'use strict';
+
 var sapocApp = angular.module('sapocApp', [ 'ngRoute' ]);
 
 sapocApp.config(['$routeProvider', function ($routeProvider) {

@@ -2,7 +2,8 @@
 
 var LoginController = function($scope, $http) {
 	alert("Inside LoginController ... 1");
-	$scope.users = [], $scope.vm = {
+	$scope.users = [], 
+	$scope.vm = {
 		userId : "",
 		password : ""
 	};
