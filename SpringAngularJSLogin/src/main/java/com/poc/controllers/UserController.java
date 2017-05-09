@@ -19,6 +19,9 @@ public class UserController {
 
 	@RequestMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public ResponseEntity login(@RequestBody User user) {
+		
+		System.out.println(">>>> Inside Login method :: "+user.toString());
+		
 		if(user.getUserId().equalsIgnoreCase("test") && user.getPassword().equalsIgnoreCase("test123")){
 			loginUsers.add(user);
 			return new ResponseEntity(HttpStatus.OK);
@@ -30,6 +33,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/loginusers", method = RequestMethod.GET, produces = "application/json")
 	public List<User> getLoginUsers() {
+		System.out.println(">>>> Inside getLoginUsers method Size :: "+loginUsers.size());
 		return loginUsers;
 	}
 }

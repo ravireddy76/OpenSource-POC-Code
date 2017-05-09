@@ -18,7 +18,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><input type="submit"
-							class="btn btn-primary btn-sm" ng-click="vm.login()"
+							class="btn btn-primary btn-sm" ng-click="login()"
 							value="Login" /></td>
 					</tr>
 				</table>

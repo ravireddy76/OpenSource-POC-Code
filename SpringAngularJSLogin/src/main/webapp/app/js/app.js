@@ -4,16 +4,15 @@ var sapocApp = angular.module('sapocApp', [ 'ngRoute' ]);
 
 sapocApp.config(['$routeProvider', function ($routeProvider) {
 	
+	alert("Inside the Router......");
+	
 	$routeProvider.when('/', {
-		templateUrl : 'views/login.jsp',
+		templateUrl : 'app/views/login.jsp',
 		controller : 'LoginController',
-		controllerAs : 'vm'
 	}).when('/home', {
-		templateUrl : 'views/home.jsp',
+		templateUrl : 'app/views/home.jsp',
 		controller : 'HomeController',
-		controllerAs : 'vm'
 	}).otherwise({
 		redirectTo : '/'
 	});
 }]);
-

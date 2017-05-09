@@ -1,7 +1,9 @@
 'use strict';
 
-var HomeController = function($scope, $http) {
-	$scope.users = []
+var sapocApp = angular.module('sapocApp');
+sapocApp.controller('HomeController', function($scope, $http, $location) {
+	alert("Inside HomeController ... 1");
+	$scope.users = [], 
 
 	getUserDetails();
 
@@ -15,4 +17,5 @@ var HomeController = function($scope, $http) {
 			console.log(response.statusText);
 		});
 	}
-}
+});
+
