@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poc.domain.User;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
 	@RequestMapping(value = "/existingusers", method = RequestMethod.GET, produces = "application/json")
