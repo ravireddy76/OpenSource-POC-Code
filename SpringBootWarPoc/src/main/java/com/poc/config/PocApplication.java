@@ -24,24 +24,4 @@ public class PocApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(PocApplication.class);
 	}
-
-//	@Bean
-//	public String applicationName() {
-//		return "springboot-war-poc";
-//	}
 }
-
-//public class PocApplication extends SpringBootServletInitializer {
-//@Override
-//protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//  return application.sources(PocApplication.class);
-//}
-//}
-
-//public class PocApplication {
-//
-//    public static void main(String[] args) {
-//		SpringApplication.run(PocApplication.class, args);
-//	}
-//    
-//}
