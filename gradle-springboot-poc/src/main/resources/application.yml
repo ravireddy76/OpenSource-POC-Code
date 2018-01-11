@@ -1,0 +1,11 @@
+info:
+  component: poc-cloud-service
+  description: Micro Service to demonstrate how to use cloud infastructure.
+  license: Ravi POC World
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name:poc-cloud-service
